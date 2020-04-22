@@ -8,7 +8,7 @@ class Interface
     @dealer = @game.dealer
     @player = @game.player
 
-    while @dealer.bank > 0 || @player.bank > 0
+    while @dealer.bank > 0 && @player.bank > 0
       @game.start_round
 
       @deck = @game.deck
@@ -59,6 +59,7 @@ class Interface
         break
       end
     end
+    puts 'Game Over'
   end
 
   def show_hand(player)
