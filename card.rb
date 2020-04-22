@@ -8,6 +8,6 @@ class Card
   end
 
   def show
-    "#{@face}#{@suit}"
+    "#{@face}#{@suit} "
   end
 end

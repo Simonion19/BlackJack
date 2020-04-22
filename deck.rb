@@ -25,12 +25,12 @@ class Deck
     @cards.shuffle!
   end
 
-  def deal_card(num, player)
+  def deal_cards(num, player)
     num.times do
       card = @cards.pop
-      player.hand << cards
+      player.hand << card
       player.score += card.value
-      if card.face == 'A' player.ace_count += 1
+      card.face == 'A' ? player.ace_count += 1 : nil
     end
   end
 end
