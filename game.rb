@@ -36,9 +36,7 @@ class Game
         @player.hit(@deck)
       end
 
-      if @dealer.hand.score < 17 
-        @dealer.hit(@deck)
-      end
+      @dealer.score_check(@deck)
 
       @interface.show_total_bet(@total_bet)
       @interface.show_hand(@dealer)
