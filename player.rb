@@ -1,20 +1,20 @@
+require_relative './bank.rb'
+require_relative './hand.rb'
+
 class Player
-  attr_accessor :name, :hand, :bank, :score, :ace_count
+  attr_accessor :name, :hand, :bank
 
-  def initialize name
+  def initialize(name)
     @name = name
-    @hand = []
-    @bank = 100
-    @score = 0
-    @ace_count = 0
+    @hand = Hand.new
+    @bank = Bank.new
+    @bank.set_start_amount
   end
 
-  def switch_ace_value
-    @score -= 10
-    @ace_count -=1
-  end
-
-  def free_hand
-    @hand = []
+  def hit(deck)
+    deck.deal_cards(1, @hand)
+    if @hand.score > 21 && @hand.ace_count > 0
+      @hand.switch_ace_value
+    end
   end
 end
