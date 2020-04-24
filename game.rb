@@ -16,8 +16,11 @@ class Game
   end
 
   def start!
+    @interface.show_question_to_enter_name
+    enter = gets.chomp.to_s
+
+    @player = Player.new enter
     @dealer = Dealer.new 'dealer'
-    @player = Player.new 'player'
 
     round
   end
@@ -66,8 +69,8 @@ class Game
     @dealer.hand.free_hand
     @player.hand.free_hand
 
-    @dealer.hand.score = 0
-    @player.hand.score = 0
+    @dealer.hand.reset_score
+    @player.hand.reset_score
 
     @dealer.bank.bet
     @player.bank.bet
@@ -76,6 +79,9 @@ class Game
 
     @deck.deal_cards(2, @dealer.hand)
     @deck.deal_cards(2, @player.hand)
+
+    @dealer.hand.ace_score_check
+    @player.hand.ace_score_check
   end
 
   def end_round

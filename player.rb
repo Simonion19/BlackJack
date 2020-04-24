@@ -13,8 +13,6 @@ class Player
 
   def hit(deck)
     deck.deal_cards(1, @hand)
-    if @hand.score > 21 && @hand.ace_count > 0
-      @hand.switch_ace_value
-    end
+    @hand.ace_score_check
   end
 end

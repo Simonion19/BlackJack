@@ -1,10 +1,8 @@
-require_relative './constants'
-
 class Bank
   attr_accessor :money
 
-  START_AMOUNT = START_AMOUNT
-  BET = BET
+  START_AMOUNT = 100
+  BET = 10
 
   def initialize
     @money = 0

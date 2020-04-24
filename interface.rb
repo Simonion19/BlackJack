@@ -26,6 +26,10 @@ class Interface
     puts "#{player.name} bank: #{player.bank.money}"
   end
 
+  def show_question_to_enter_name
+    puts 'Введите имя игрока'
+  end
+
   def show_question_to_hit
     puts 'Введите 1, чтобы взять карту'
     puts 'Введите 0, чтобы пропустить'
