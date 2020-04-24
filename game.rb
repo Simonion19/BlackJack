@@ -90,10 +90,10 @@ class Game
 
     if dealer_score <= 21 && player_score <= 21
       if dealer_score > player_score
-        give_total_bet(@dealer, @bank.get_total_bet)
+        give_total_bet(@dealer)
         @dealer.name
       elsif dealer_score < player_score
-        give_total_bet(@player, @bank.get_total_bet)
+        give_total_bet(@player)
         @player.name
       elsif dealer_score == player_score
         @player.bank.return_bet
@@ -101,10 +101,10 @@ class Game
         false
       end
     elsif dealer_score <= 21 && player_score > 21
-      give_total_bet(@dealer, @bank.get_total_bet)
+      give_total_bet(@dealer)
       @dealer.name
     elsif dealer_score > 21 && player_score <= 21
-      give_total_bet(@player, @bank.get_total_bet)
+      give_total_bet(@player)
       @player.name
     elsif dealer_score > 21 && player_score > 21
       @player.bank.return_bet
@@ -113,8 +113,8 @@ class Game
     end
   end
 
-  def give_total_bet(player, total_bet)
-    player.bank.get_a_win(total_bet)
+  def give_total_bet(player)
+    player.bank.get_a_win
   end
 end
 

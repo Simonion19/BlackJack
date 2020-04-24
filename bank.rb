@@ -20,8 +20,8 @@ class Bank
     @money += BET
   end
 
-  def get_a_win(win)
-    @money += win
+  def get_a_win
+    @money += get_total_bet
   end
 
   def get_total_bet
